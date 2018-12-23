@@ -1,0 +1,37 @@
+a<-colnames(data)
+a<-as.data.frame(a)
+i=1
+for(i in 1:nrow(a))
+{
+  data1<-data[,c(i)]
+  data1<-as.data.frame(data1)
+  a2<-length(unique(data1$data1))
+  
+  a3<-sum(is.na(data1$data))
+  a3<-nrow(data)-a3
+  a2<-as.data.frame(a2)
+  a3<-as.data.frame(a3)
+  if(i==1)
+  {
+    out<-cbind(a2,a3)
+    out$col<-as.character(a[i,1])
+    out1<-out
+    out1<-as.data.frame(out1)
+  }
+  if(i>1)
+  {
+    out<-cbind(a2,a3)
+    out$col<-as.character(a[i,1])
+    out<-as.data.frame(out)
+    out1<-rbind(out1,out)
+    out1<-as.data.frame(out1)
+
+
+      }
+  print(i)
+}
+
+colnames(out1)
+class(out1)
+out1[1:10,]
+colnames(out1)<-c("Unique","Blanks","Colname")
